@@ -89,7 +89,7 @@
 
 
 ## Acknowledgements
-- I would like to express gratitude to the UpGrad IITB Programme for providing me with the opportunity to implement NLP as part of our coursework. 
+- I would like to express gratitude to the UpGrad and IIITB Programme for providing me with the opportunity to implement NLP as part of our coursework. 
 - This case study has enriched our understanding and practical application of data analysis techniques, contributing significantly to our learning experience.
 
 
