@@ -50,22 +50,52 @@
 
 #### Inference:
 
-| Model                   | Accuracy   | Key Observations                                                                                                                                                       |
-| ----------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Logistic Regression** | **0.9381** | - Highest accuracy among all models<br>- Precision, recall, and F1-scores are consistently high across all classes<br>- Balanced performance: ideal for production use |
-| **Decision Tree**       | 0.7772     | - Performs significantly worse than Logistic Regression<br>- Lower precision and recall across most classes<br>- Likely overfitting/underfitting issues                |
-| **Random Forest**       | 0.8418     | - Good balance between precision and recall for classes 0–3<br>- Slight drop in recall for class 4 (0.587)<br>- Better generalization than a single decision tree      |
-| **Naive Bayes**         | 0.8225     | - Performs well for classes 0–2<br>- Struggles with class 4 (lower precision)<br>- Simple and efficient but not the most accurate                                      |
+| Model                     | Accuracy  | Macro F1  | Comments                                                                   |
+| ------------------------- | --------- | --------- | -------------------------------------------------------------------------- |
+|**Logistic Regression** | **0.940** | **0.939** | Best performing model — high, balanced precision/recall across all classes |
+| Random Forest             | 0.836     | 0.830     | Good performance, slight dip in class consistency                          |
+| Naive Bayes               | 0.821     | 0.809     | Decent; overestimates some classes, underperforms on others                |
+| Decision Tree             | 0.785     | 0.777     | Weakest overall — unstable class-wise recall/precision                     |
 
 ##### Performance Summary
 
-- Logistic Regression is the best performing model, achieving the highest overall accuracy (93.8%) with strong class-wise precision, recall, and F1-scores.
+1. **Logistic Regression (Best Performing Model)**
 
-- Random Forest is a strong runner-up, with robust performance and less overfitting than Decision Trees.
+    Achieves consistently high precision, recall, and F1-scores across all classes.
 
-- Naive Bayes offers decent results with faster computation, making it suitable for quick baselines or resource-constrained environments.
+    Well-balanced model and ideal for deployment in its current state.
 
-- Decision Tree alone is not recommended due to lower accuracy and potential overfitting.
+    Recommended as the final model for the task.
+
+2. **Random Forest (Good Alternative)**
+
+    Performs well but slightly inconsistent across classes (notably lower precision for class 4).
+
+    Could be enhanced with hyperparameter tuning or class balancing.
+
+    Suitable for use if nonlinear relationships are important.
+
+3. **Naive Bayes**
+
+    Decent performance on most classes, but suffers from lower precision in class 4.
+
+    Fast and lightweight, but assumptions of feature independence may limit performance.
+
+4. **Decision Tree (Least Effective)**
+
+    Shows inconsistent performance, especially poor for class 3 recall.
+
+    Likely overfitting or underfitting due to lack of depth control or pruning.
+
+    Not recommended without significant tuning.
+
+##### Final Recommendation
+
+- Use Logistic Regression as the primary model — it's accurate, balanced, and interpretable.
+
+- Optionally, experiment with Random Forest or XGBoost for further performance improvement.
+
+- Ensure class distributions are handled properly (e.g., oversampling, class_weight='balanced') for better generalization.
 
 
 ## Technologies Used
